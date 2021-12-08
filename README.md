@@ -25,6 +25,7 @@ Where the rules above don't make sense, you can drop a `.lint` file in a same di
 
 ```yaml
 exclusions:
-  template-job-rule:
+  entries:
+  - dashboard: template-job-rule:
     reason: "Job & instance not needed, using recording rules."
 ```

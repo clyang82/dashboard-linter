@@ -17,8 +17,8 @@ type ConfigurationFile struct {
 }
 
 type ConfigurationRuleEntries struct {
-	Reason  string               `json:"reason,omitempty"`
-	Entries []ConfigurationEntry `json:"entries,omitempty"`
+	Reason  string               `yaml:"reason,omitempty"`
+	Entries []ConfigurationEntry `yaml:"entries,omitempty"`
 }
 
 // ConfigurationEntry will exist precisely once for every instance of a rule violation you wish
@@ -26,11 +26,11 @@ type ConfigurationRuleEntries struct {
 // to the combination of attributes set. Reason will not be evaluated, and is an opportunity for
 // the author to explain why the exception, or downgrade to warning exists.
 type ConfigurationEntry struct {
-	Reason    string `json:"reason,omitempty"`
-	Dashboard string `json:"dashboard,omitempty"`
-	Panel     string `json:"panel,omitempty"`
+	Reason    string `yaml:"reason,omitempty"`
+	Dashboard string `yaml:"dashboard,omitempty"`
+	Panel     string `yaml:"panel,omitempty"`
 	// This gets (un)marshalled as a string, because a 0 index is valid, but also the zero value of an int
-	TargetIdx string `json:"targetIdx"`
+	TargetIdx string `yaml:"targetIdx"`
 }
 
 func (cre *ConfigurationRuleEntries) AddEntry(e ConfigurationEntry) {
